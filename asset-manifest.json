@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/WEB-DEV-2-CapStone-Assignment/static/css/main.bfef3e49.css",
+    "main.js": "/WEB-DEV-2-CapStone-Assignment/static/js/main.6ba8a53d.js",
+    "index.html": "/WEB-DEV-2-CapStone-Assignment/index.html",
+    "main.bfef3e49.css.map": "/WEB-DEV-2-CapStone-Assignment/static/css/main.bfef3e49.css.map",
+    "main.6ba8a53d.js.map": "/WEB-DEV-2-CapStone-Assignment/static/js/main.6ba8a53d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bfef3e49.css",
+    "static/js/main.6ba8a53d.js"
+  ]
+}
