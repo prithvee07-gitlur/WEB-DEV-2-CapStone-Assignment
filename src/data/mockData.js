@@ -1294,3 +1294,46 @@ export const mockGeographyData = [
     value: 171135,
   },
 ];
+
+export const mockDataTasks = [
+  {
+    id: 1,
+    title: "Update API Documentation",
+    assignee: "Vaibhav Negi",
+    priority: "High",
+    status: "In Progress",
+    dueDate: "2024-05-10"
+  },
+  {
+    id: 2,
+    title: "Fix Login Page CSS Bug",
+    assignee: "Akanksha Kumari",
+    priority: "Medium",
+    status: "Todo",
+    dueDate: "2024-05-12"
+  },
+  {
+    id: 3,
+    title: "Database Migration Script",
+    assignee: "Tarun Sharma",
+    priority: "High",
+    status: "Done",
+    dueDate: "2024-05-01"
+  },
+  {
+    id: 4,
+    title: "Create User Onboarding Flow",
+    assignee: "Ambikesh yash dubey",
+    priority: "Medium",
+    status: "Todo",
+    dueDate: "2024-05-15"
+  },
+  {
+    id: 5,
+    title: "Client Meeting Presentation",
+    assignee: "Trijal Garg",
+    priority: "High",
+    status: "In Progress",
+    dueDate: "2024-05-05"
+  }
+];
