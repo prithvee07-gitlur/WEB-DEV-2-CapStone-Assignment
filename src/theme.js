@@ -1,64 +1,63 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
 
-// color design tokens export
 export const tokens = (mode) => ({
   ...(mode === "dark"
     ? {
         grey: {
-          100: "#e0e0e0",
-          200: "#c2c2c2",
-          300: "#a3a3a3",
-          400: "#858585",
-          500: "#666666",
-          600: "#525252",
-          700: "#3d3d3d",
-          800: "#292929",
-          900: "#141414",
+          100: "#f4f4f5",
+          200: "#e4e4e7",
+          300: "#d4d4d8",
+          400: "#a1a1aa",
+          500: "#71717a",
+          600: "#52525b",
+          700: "#3f3f46",
+          800: "#27272a",
+          900: "#18181b",
         },
         primary: {
-          100: "#d0d1d5",
-          200: "#a1a4ab",
-          300: "#727681",
-          400: "#1F2A40",
-          500: "#141b2d",
-          600: "#101624",
-          700: "#0c101b",
-          800: "#080b12",
-          900: "#040509",
+          100: "#3f3f46",
+          200: "#27272a",
+          300: "#18181b",
+          400: "#09090b",
+          500: "#09090b",
+          600: "#000000",
+          700: "#000000",
+          800: "#000000",
+          900: "#000000",
         },
         greenAccent: {
-          100: "#dbf5ee",
-          200: "#b7ebde",
-          300: "#94e2cd",
-          400: "#70d8bd",
-          500: "#4cceac",
-          600: "#3da58a",
-          700: "#2e7c67",
-          800: "#1e5245",
-          900: "#0f2922",
+          100: "#d1fae5",
+          200: "#a7f3d0",
+          300: "#6ee7b7",
+          400: "#34d399",
+          500: "#10b981",
+          600: "#059669",
+          700: "#047857",
+          800: "#065f46",
+          900: "#064e3b",
         },
         redAccent: {
-          100: "#f8dcdb",
-          200: "#f1b9b7",
-          300: "#e99592",
-          400: "#e2726e",
-          500: "#db4f4a",
-          600: "#af3f3b",
-          700: "#832f2c",
-          800: "#58201e",
-          900: "#2c100f",
+          100: "#fee2e2",
+          200: "#fecaca",
+          300: "#fca5a5",
+          400: "#f87171",
+          500: "#ef4444",
+          600: "#dc2626",
+          700: "#b91c1c",
+          800: "#991b1b",
+          900: "#7f1d1d",
         },
         blueAccent: {
-          100: "#e1e2fe",
-          200: "#c3c6fd",
-          300: "#a4a9fc",
-          400: "#868dfb",
-          500: "#6870fa",
-          600: "#535ac8",
-          700: "#3e4396",
-          800: "#2a2d64",
-          900: "#151632",
+          100: "#e0e7ff",
+          200: "#c7d2fe",
+          300: "#a5b4fc",
+          400: "#818cf8",
+          500: "#6366f1",
+          600: "#4f46e5",
+          700: "#4338ca",
+          800: "#3730a3",
+          900: "#312e81",
         },
       }
     : {
@@ -77,7 +76,7 @@ export const tokens = (mode) => ({
           100: "#040509",
           200: "#080b12",
           300: "#0c101b",
-          400: "#f2f0f0", // manually changed
+          400: "#f2f0f0",
           500: "#141b2d",
           600: "#1F2A40",
           700: "#727681",
@@ -120,86 +119,199 @@ export const tokens = (mode) => ({
       }),
 });
 
-// mui theme settings
 export const themeSettings = (mode) => {
   const colors = tokens(mode);
+  const thinBorderDark = "1px solid rgba(255, 255, 255, 0.08)";
+  const thinBorderLight = "1px solid #EBEBEB";
+  const softShadow = mode === "light" ? "0 1px 3px rgba(0, 0, 0, 0.04)" : "none";
+
   return {
     palette: {
       mode: mode,
       ...(mode === "dark"
         ? {
-            // palette values for dark mode
             primary: {
-              main: colors.primary[500],
+              main: colors.blueAccent[500],
             },
             secondary: {
-              main: colors.greenAccent[500],
+              main: colors.blueAccent[400],
             },
             neutral: {
               dark: colors.grey[700],
               main: colors.grey[500],
-              light: colors.grey[100],
+              light: colors.grey[300],
             },
             background: {
-              default: colors.primary[500],
+              default: "#09090b",
+              paper: "#18181b",
             },
           }
         : {
-            // palette values for light mode
             primary: {
-              main: colors.primary[100],
+              main: colors.blueAccent[500],
             },
             secondary: {
-              main: colors.greenAccent[500],
+              main: colors.blueAccent[400],
             },
             neutral: {
-              dark: colors.grey[700],
+              dark: colors.grey[300],
               main: colors.grey[500],
-              light: colors.grey[100],
+              light: colors.grey[800],
             },
             background: {
-              default: "#fcfcfc",
+              default: "#FDFCFB",
+              paper: "#FFFFFF",
             },
           }),
     },
     typography: {
-      fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+      fontFamily: ["Inter", "sans-serif"].join(","),
       fontSize: 12,
       h1: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 40,
+        fontFamily: ["Inter", "sans-serif"].join(","),
+        fontSize: 48,
+        fontWeight: 800,
+        letterSpacing: "-0.02em",
       },
       h2: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 32,
+        fontFamily: ["Inter", "sans-serif"].join(","),
+        fontSize: 36,
+        fontWeight: 700,
+        letterSpacing: "-0.01em",
       },
       h3: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
-        fontSize: 24,
+        fontFamily: ["Inter", "sans-serif"].join(","),
+        fontSize: 28,
+        fontWeight: 600,
       },
       h4: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 20,
+        fontWeight: 600,
       },
       h5: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 16,
+        fontWeight: 500,
       },
       h6: {
-        fontFamily: ["Source Sans Pro", "sans-serif"].join(","),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 14,
+        fontWeight: 500,
       },
+    },
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          body: {
+            backgroundColor: mode === "dark" ? "#09090b" : "#FDFCFB",
+            color: mode === "dark" ? "#f4f4f5" : "#0a2540",
+          },
+        },
+      },
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            backgroundImage: "none",
+            backgroundColor: mode === "dark" ? "#18181b" : "#ffffff",
+            border: mode === "dark" ? thinBorderDark : thinBorderLight,
+            boxShadow: softShadow,
+            borderRadius: "12px",
+          },
+        },
+      },
+      MuiCard: {
+        styleOverrides: {
+          root: {
+            backgroundImage: "none",
+            backgroundColor: mode === "dark" ? "#18181b" : "#ffffff",
+            border: mode === "dark" ? thinBorderDark : thinBorderLight,
+            boxShadow: softShadow,
+            borderRadius: "12px",
+          },
+        },
+      },
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: "none",
+            fontWeight: 600,
+            borderRadius: "8px",
+          },
+          containedPrimary: {
+            boxShadow: "none",
+            backgroundColor: colors.blueAccent[500],
+            color: "#ffffff",
+            ":hover": {
+              boxShadow: "none",
+              backgroundColor: colors.blueAccent[600],
+            },
+          },
+          outlinedPrimary: {
+            borderColor: mode === "dark" ? "rgba(255,255,255,0.2)" : "#D9D6CF",
+            color: mode === "dark" ? colors.grey[100] : colors.grey[100],
+            ":hover": {
+              borderColor: mode === "dark" ? "rgba(255,255,255,0.35)" : "#C7C2B9",
+              backgroundColor: mode === "dark" ? "rgba(255,255,255,0.04)" : "rgba(94, 106, 210, 0.06)",
+            },
+          },
+        },
+      },
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            backgroundColor: mode === "dark" ? "#111114" : "#F9F7F4",
+            borderRadius: "10px",
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: mode === "dark" ? "rgba(255,255,255,0.08)" : "transparent",
+            },
+            "&:hover .MuiOutlinedInput-notchedOutline": {
+              borderColor: mode === "dark" ? "rgba(255,255,255,0.16)" : "#E3E1DC",
+            },
+            "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: colors.blueAccent[500],
+              boxShadow: mode === "dark" ? "0 0 0 2px rgba(94, 106, 210, 0.25)" : "0 0 0 2px rgba(94, 106, 210, 0.15)",
+            },
+          },
+        },
+      },
+      MuiInputLabel: {
+        styleOverrides: {
+          root: {
+            color: mode === "dark" ? colors.grey[500] : colors.grey[500],
+            "&.Mui-focused": {
+              color: colors.blueAccent[500],
+            },
+          },
+        },
+      },
+      MuiDataGrid: {
+        styleOverrides: {
+          root: {
+            border: mode === "dark" ? thinBorderDark : thinBorderLight,
+            backgroundColor: mode === "dark" ? "#18181b" : "#ffffff",
+            boxShadow: softShadow,
+            borderRadius: "12px",
+            "& .MuiDataGrid-columnHeaders": {
+              backgroundColor: mode === "dark" ? "#151518" : "#FBFAF8",
+              borderBottom: mode === "dark" ? thinBorderDark : thinBorderLight,
+            },
+            "& .MuiDataGrid-row:hover": {
+              backgroundColor: mode === "dark" ? "rgba(255,255,255,0.03)" : "rgba(94, 106, 210, 0.04)",
+            },
+          }
+        }
+      }
     },
   };
 };
 
-// context for color mode
 export const ColorModeContext = createContext({
   toggleColorMode: () => {},
 });
 
 export const useMode = () => {
-  const [mode, setMode] = useState("dark");
+  const [mode, setMode] = useState("light");
 
   const colorMode = useMemo(
     () => ({

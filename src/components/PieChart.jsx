@@ -42,6 +42,13 @@ const PieChart = () => {
           },
         },
       }}
+      colors={[
+        colors.blueAccent[300],
+        colors.blueAccent[400],
+        colors.blueAccent[500],
+        colors.blueAccent[600],
+        colors.blueAccent[700],
+      ]}
       margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
       innerRadius={0.5}
       padAngle={0.7}

@@ -11,7 +11,6 @@ const BarChart = ({ isDashboard = false }) => {
     <ResponsiveBar
       data={data}
       theme={{
-        // added
         axis: {
           domain: {
             line: {
@@ -50,7 +49,12 @@ const BarChart = ({ isDashboard = false }) => {
       padding={0.3}
       valueScale={{ type: "linear" }}
       indexScale={{ type: "band", round: true }}
-      colors={{ scheme: "nivo" }}
+      colors={[
+        colors.blueAccent[300],
+        colors.blueAccent[400],
+        colors.blueAccent[500],
+        colors.blueAccent[600],
+      ]}
       defs={[
         {
           id: "dots",
@@ -81,7 +85,7 @@ const BarChart = ({ isDashboard = false }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "state", // changed
+        legend: isDashboard ? undefined : "state",
         legendPosition: "middle",
         legendOffset: 32,
       }}
@@ -89,7 +93,7 @@ const BarChart = ({ isDashboard = false }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "food", // changed
+        legend: isDashboard ? undefined : "food",
         legendPosition: "middle",
         legendOffset: -40,
       }}

@@ -45,23 +45,28 @@ const SidebarComponent = () => {
     <Box
       sx={{
         "& .ps-sidebar-container": {
-          background: `${colors.primary[400]} !important`,
+          background: theme.palette.mode === "dark" 
+            ? "rgba(24, 24, 27, 0.6) !important" 
+            : "rgba(255, 255, 255, 0.7) !important",
+          backdropFilter: "blur(12px)",
+          borderRight: theme.palette.mode === "dark"
+            ? "1px solid rgba(255, 255, 255, 0.05)"
+            : "1px solid #E4E4E7",
         },
         "& .ps-menu-button": {
           padding: "5px 35px 5px 20px !important",
         },
         "& .ps-menu-button:hover": {
-          color: "#868dfb !important",
+          color: colors.blueAccent[500] + " !important",
           backgroundColor: "transparent !important",
         },
         "& .ps-menu-button.ps-active": {
-          color: "#6870fa !important",
+          color: colors.blueAccent[400] + " !important",
         },
       }}
     >
       <Sidebar collapsed={isCollapsed} backgroundColor="transparent">
         <Menu iconShape="square">
-          {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}

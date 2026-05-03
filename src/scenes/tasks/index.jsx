@@ -25,7 +25,6 @@ const Tasks = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   
-  // Local state to handle adding new tasks dynamically
   const [tasks, setTasks] = useState(mockDataTasks);
 
   const handleFormSubmit = (values, { resetForm }) => {
@@ -35,7 +34,7 @@ const Tasks = () => {
       assignee: values.assignee,
       priority: values.priority,
       dueDate: values.dueDate,
-      status: "Todo", // Default status for new tasks
+      status: "Todo",
     };
     
     setTasks([...tasks, newTask]);
@@ -89,7 +88,6 @@ const Tasks = () => {
     <Box m="20px">
       <Header title="ASSIGN TASKS" subtitle="Create and assign tasks to team members" />
 
-      {/* FORM SECTION */}
       <Formik
         onSubmit={handleFormSubmit}
         initialValues={initialValues}
@@ -109,7 +107,7 @@ const Tasks = () => {
               gap="30px"
               gridTemplateColumns="repeat(4, minmax(0, 1fr))"
               sx={{
-                "& > div": { gridColumn: "span 4" }, // Full width on small screens
+                "& > div": { gridColumn: "span 4" },
               }}
             >
               <TextField
@@ -185,7 +183,6 @@ const Tasks = () => {
         )}
       </Formik>
 
-      {/* TABLE SECTION */}
       <Box
         m="40px 0 0 0"
         height="50vh"
